@@ -33,7 +33,8 @@ export const FloatingButton = () =>{
             cursor: 'pointer',
             overflow: 'hidden',
             display: 'flex',
-            flexDirection: 'column'
+            flexDirection: 'column',
+            zIndex: 50
         }}
         onClick={() => setIsOpen(!isOpen)}
         >
