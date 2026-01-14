@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import React, { useEffect } from 'react';
 import { HorizonWater } from './HorizonWater'
 import BlobImage from './BlobImage'
+import Background from './GradientBackground';
 
 const HeroSection = () => {
   useEffect(() => {
@@ -36,11 +37,9 @@ const HeroSection = () => {
     <section 
       id="home" 
       className="relative h-dvh w-full overflow-hidden flex flex-col"
-      style={{ touchAction: 'none' }} // Prevents touch-scrolling on mobile during intro
+      style={{ touchAction: 'none' }}
     >
-
       <div className="flex flex-col md:flex-row gap-8 w-full pt-20 md:pt-40 md:-mt-40 px-6 z-10 grow">
-        {/* BLOB IMAGE */}
         <motion.div 
           className="w-full md:w-1/2 flex justify-center items-center"
           initial={{ scale: 0, opacity: 0 }}
@@ -50,13 +49,13 @@ const HeroSection = () => {
           <BlobImage />
         </motion.div>
 
-        {/* TYPING TEXT */}
         <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
           <motion.h1 
             className='text-4xl md:text-7xl font-bold'
             variants={sentence}
             initial="hidden"
             animate="visible"
+            transition={{duration:0}}
           >
             {"Hi, I'm Fake Name".split("").map((char, index) => (
               <motion.span key={index} variants={letter}>{char}</motion.span>
@@ -74,24 +73,22 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* WATER */}
       <motion.div 
         className="w-full"
-        initial={{ y: "100%" }}
+        initial={{ y: 200 }}
         animate={{ y: 0 }}
         transition={{ delay: 3.2, duration: 1.2, ease: "easeOut" }}
       >
         <HorizonWater />
       </motion.div>
 
-      {/* SCROLL PROMPT - Only appears when scrolling is actually enabled */}
       <motion.div 
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 5 }} // Appears right as the scroll unlocks
+        transition={{ delay: 5 }} 
       >
-        <p className="text-sm uppercase tracking-widest animate-bounce">Scroll to explore ↓</p>
+        <p className="text-sm uppercase tracking-widest animate-bounce text-white text-nowrap">↓ Scroll to explore ↓</p>
       </motion.div>
     </section>
   );
