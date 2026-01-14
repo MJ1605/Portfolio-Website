@@ -49,7 +49,7 @@ const HeroSection = () => {
           <BlobImage />
         </motion.div>
 
-        <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left">
+        <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left text-white">
           <motion.h1 
             className='text-4xl md:text-7xl font-bold'
             variants={sentence}
@@ -63,12 +63,12 @@ const HeroSection = () => {
           </motion.h1>
           
           <motion.p 
-            className='text-lg md:text-2xl pt-4 opacity-80'
+            className='text-lg md:text-2xl pt-4 opacity-80 text-white'
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
           >
-            //Insert something here as a one sentence summary
+            Insert something here as a one sentence summary
           </motion.p>
         </div>
       </div>
