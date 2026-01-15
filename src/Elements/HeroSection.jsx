@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { HorizonWater } from './HorizonWater'
 import BlobImage from './BlobImage'
-import Background from './GradientBackground';
 
 const HeroSection = () => {
   useEffect(() => {
@@ -34,12 +33,8 @@ const HeroSection = () => {
   };
 
   return (
-    <section 
-      id="home" 
-      className="relative h-dvh w-full overflow-hidden flex flex-col"
-      style={{ touchAction: 'none' }}
-    >
-      <div className="flex flex-col md:flex-row gap-8 w-full pt-20 md:pt-40 md:-mt-40 px-6 z-10 grow">
+    <>
+      <div className="flex flex-col md:flex-row gap-8 w-full pt-20 md:pt-40 md:-mt-40 px-6 z-10 grow h-screen">
         <motion.div 
           className="w-full md:w-1/2 flex justify-center items-center"
           initial={{ scale: 0, opacity: 0 }}
@@ -90,7 +85,7 @@ const HeroSection = () => {
       >
         <p className="text-sm uppercase tracking-widest animate-bounce text-white text-nowrap">↓ Scroll to explore ↓</p>
       </motion.div>
-    </section>
+    </>
   );
 };
 

@@ -9,7 +9,6 @@ const FluidGrid = () => {
     const ctx = canvas.getContext('2d');
     let animationFrameId;
 
-    // Grid settings
     const spacing = 30;
     const dotRadius = 2;
     const maxDistortion = 40;
@@ -73,7 +72,6 @@ const FluidGrid = () => {
         dot.x += dot.vx;
         dot.y += dot.vy;
 
-        // Visuals
         const dotDistance = Math.sqrt((mouseX - dot.x) ** 2 + (mouseY - dot.y) ** 2);
         const gradient = 1 - Math.min(1, dotDistance / 200);
         const colorValue = Math.floor(40 + gradient * 200);
@@ -83,11 +81,9 @@ const FluidGrid = () => {
         ctx.arc(dot.x, dot.y, dotRadius + gradient * 1.5, 0, Math.PI * 2);
         ctx.fill();
 
-        // Horizontal lines
         if (i < dots.length - 1 && (i + 1) % cols !== 0) {
           drawLink(dot, dots[i + 1], gradient);
         }
-        // Vertical lines
         if (i + cols < dots.length) {
           drawLink(dot, dots[i + cols], gradient);
         }
@@ -107,13 +103,11 @@ const FluidGrid = () => {
       }
     };
 
-    // Initialization & Event Listeners
     initGrid();
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('resize', initGrid);
     animate();
 
-    // Cleanup on unmount
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', initGrid);
@@ -122,12 +116,12 @@ const FluidGrid = () => {
   }, []);
 
   const containerStyle = {
-    position: 'absolute', // Stays in place
+    position: 'fixed',
     top: 0,
     left: 0,
     width: '100vw',
     height: '100vh',
-    zIndex: -1,       // Sits behind everything else
+    zIndex: -1, 
     backgroundColor: '#000',
     overflow: 'hidden',
   };
@@ -145,7 +139,6 @@ const FluidGrid = () => {
   return (
     <div style={containerStyle}>
       <canvas ref={canvasRef} style={{ display: 'block' }} />
-      <div style={infoStyle}>Move your mouse over the canvas</div>
     </div>
   );
 };
