@@ -1,9 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Background from './Elements/GradientBackground'
 import { FloatingButton } from './Elements/MenuButton'
-
-
 import HeroSection from './Elements/HeroSection'
 import FluidGrid from './Elements/FluidGrid'
 

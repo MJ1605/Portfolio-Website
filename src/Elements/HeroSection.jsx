@@ -4,6 +4,8 @@ import { HorizonWater } from './HorizonWater'
 import BlobImage from './BlobImage'
 
 const HeroSection = () => {
+  
+  
   useEffect(() => {
     // 1. Lock scroll on mount
     document.body.style.overflow = 'hidden';
@@ -19,53 +21,32 @@ const HeroSection = () => {
     };
   }, []);
 
-  const sentence = {
-    hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.05 },
-    },
-  };
-
-  const letter = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1 },
-  };
-
   return (
     <>
-      <div className="flex flex-col md:flex-row gap-8 w-full pt-20 md:pt-40 md:-mt-40 px-6 z-10 grow h-screen">
+      <div className="flex flex-col md:flex-row gap-0 md:gap-8 w-full pt-20 md:pt-40 md:-mt-40 px-6 z-10 grow h-screen">
         <motion.div 
           className="w-full md:w-1/2 flex justify-center items-center"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 2.5, type: "spring", stiffness: 100 }}
+          transition={{ delay: 2.4, type: "spring", stiffness: 100 }}
         >
           <BlobImage />
         </motion.div>
 
-        <div className="w-full md:w-1/2 flex flex-col justify-center text-center md:text-left text-white">
-          <motion.h1 
-            className='text-4xl md:text-7xl font-bold'
-            variants={sentence}
-            initial="hidden"
-            animate="visible"
-            transition={{duration:0}}
-          >
-            {"Hi, I'm Fake Name".split("").map((char, index) => (
-              <motion.span key={index} variants={letter}>{char}</motion.span>
-            ))}
-          </motion.h1>
-          
-          <motion.p 
-            className='text-lg md:text-2xl pt-4 opacity-80 text-white'
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 1 }}
-          >
-            Insert something here as a one sentence summary
-          </motion.p>
-        </div>
+        <motion.div className='flex items-start flex-col justify-center' animate={{scale: 1}} initial={{scale:0}}>
+          <div className='text-white bg-neutral-600 w-full flex flex-row justify-between p-2 pl-4 pr-4 rounded-tl-2xl rounded-tr-2xl'>
+            <div className='flex align-middle h-full gap-1.5 p-1'>
+              <div className='w-4 h-4 bg-red-600 rounded-2xl'></div>
+              <div className='w-4 h-4 bg-amber-300 rounded-2xl'></div>
+              <div className='w-4 h-4 bg-green-600 rounded-2xl'></div>
+            </div>
+            <p className='w-full text-center'>Code Editor</p>
+          </div>
+          <div className='bg-neutral-800 p-4 rounded-br-2xl rounded-bl-2xl w-fit flex flex-col gap-3'>
+            <h1 className='text-white text-5xl font-bold monospace'>Hi! I'm Fake Name</h1>
+            <div className='text-white monospace text-wrap max-w-md'>A Developer creating functional software and interactive gameplay-driven experiences</div>
+          </div>
+        </motion.div>
       </div>
 
       <motion.div 

@@ -47,7 +47,7 @@ export const FloatingButton = () => {
             <MenuButton scrollFunction={scrollToSection} buttonText={"Personal Accolates"}></MenuButton>
             <MenuButton scrollFunction={scrollToSection} buttonText={"Contacts"}></MenuButton>
         </motion.div>
-        <motion.div className="bg-white right-4 w-96 rounded-4xl" animate={{opacity: isOpen ? "100%" : "0%", y: isOpen ? "0": "1000%", rotate: isOpen ? 0 : -5}} transition={{ type: "spring", stiffness: 300, damping: 20, mass: 0.8, }}
+        <motion.div className="bg-white right-4 w-80 md:w-96 rounded-4xl" animate={{opacity: isOpen ? "100%" : "0%", y: isOpen ? "0": "1000%", rotate: isOpen ? 0 : -5}} transition={{ type: "spring", stiffness: 300, damping: 20, mass: 0.8, }}
             initial={{opacity: "0%"}}>
             <p>Other Works</p>
         </motion.div>

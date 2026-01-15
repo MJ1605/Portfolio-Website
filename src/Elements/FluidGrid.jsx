@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 const FluidGrid = () => {
   const canvasRef = useRef(null);
-  const mouseRef = useRef({ x: 0, y: 0 });
+  const mouseRef = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
