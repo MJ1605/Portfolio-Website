@@ -1,24 +1,60 @@
 import { motion } from 'framer-motion';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { HorizonWater } from './HorizonWater'
 import BlobImage from './BlobImage'
 
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
 const HeroSection = () => {
-  
+  const [headerText, setHeaderText] = useState("");
+  const [descriptionText, setDescriptionText] = useState("");
   
   useEffect(() => {
-    // 1. Lock scroll on mount
+    let isCancelled = false;
     document.body.style.overflow = 'hidden';
     
-    // 2. Unlock scroll after the sequence is finished (matches your longest delay)
     const timer = setTimeout(() => {
       document.body.style.overflow = 'unset';
     }, 5000); 
 
+    const typeEffect = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 400));
+
+      let curText = "";
+      for (const char of "Hi! I'm Fake Name") {
+        if (isCancelled) break;
+        
+        curText += char;
+        setHeaderText(curText);
+        
+        await new Promise((resolve) => setTimeout(resolve, 80));
+      }
+    };
+
+    typeEffect();
+
+    const typeEffect2 = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      let curText = "";
+      for (const char of "A Developer creating functional software and interactive gameplay-driven experiences") {
+        if (isCancelled) break;
+        
+        curText += char;
+        setDescriptionText(curText);
+        
+        await new Promise((resolve) => setTimeout(resolve, 50));
+      }
+    };
+
+    typeEffect2();
+
+
     return () => {
       document.body.style.overflow = 'unset';
       clearTimeout(timer);
-    };
+      isCancelled=true;
+    };  
   }, []);
 
   return (
@@ -43,8 +79,8 @@ const HeroSection = () => {
             <p className='w-full text-center'>Code Editor</p>
           </div>
           <div className='bg-neutral-800 p-4 rounded-br-2xl rounded-bl-2xl w-fit flex flex-col gap-3'>
-            <h1 className='text-white text-5xl font-bold monospace'>Hi! I'm Fake Name</h1>
-            <div className='text-white monospace text-wrap max-w-md'>A Developer creating functional software and interactive gameplay-driven experiences</div>
+            <h1 className='text-white text-5xl font-bold monospace max-w-md min-w-40' >{headerText}</h1>
+            <div className='text-white monospace text-wrap max-w-md' >{descriptionText}</div>
           </div>
         </motion.div>
       </div>
