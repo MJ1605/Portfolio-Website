@@ -7,6 +7,13 @@ body {
   font-family: 'Inter', sans-serif;
 }
 
+html, body {
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  z-index: -9999;
+}
+
 h1, h2, .menu-link {
   font-family: 'Playfair Display', serif;
 }

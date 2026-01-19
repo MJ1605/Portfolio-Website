@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 import { FloatingButton } from './Elements/MenuButton'
 import HeroSection from './Elements/HeroSection'
@@ -6,7 +6,8 @@ import FluidGrid from './Elements/FluidGrid'
 import { useInView } from 'framer-motion'
 
 function App() {
-  const isInView = useInView(sectionRef, { amount: 0.6 });
+  const homeRef = useRef(null);
+  const isHomeInView = useInView(homeRef, { amount: 0.1 });
 
 
   useEffect(() => {
@@ -28,27 +29,23 @@ function App() {
     };
   }, []);
 
-  // useEffect(() => {
-  //   if(isInView)
-  // }, [isInView]);
-
   return (
     <>
       <div className='w-screen h-screen'>
-        <FluidGrid></FluidGrid>
+        {isHomeInView && <FluidGrid></FluidGrid>}
         <FloatingButton></FloatingButton>
 
         <header>
-          <h1 className="text-5xl w-full mb-10 fixed p-8 text-white">
+          <h1 className="text-5xl w-full mb-10 fixed p-8 text-white z-40">
             Fake Name
           </h1>
 
         </header>
 
-        <section id="home" className="relative min-h-screen w-full overflow-x-hidden flex flex-col h-dvh overflow-hidden" style={{ touchAction: 'none' }}>
+        <section id="home" className="relative min-h-screen w-full overflow-x-hidden flex flex-col h-dvh overflow-hidden" style={{ touchAction: 'none' }} ref={homeRef}>
           <HeroSection></HeroSection>
         </section>
-        <section id="intermission-1" className='w-screen h-screen' style={{backgroundColor: "rgba(0, 96, 128)"}}>
+        <section id="intermission-1" className='relative w-screen h-screen z-10' style={{backgroundColor: "rgba(0, 96, 128)", zIndex: 9999}}>
 
         </section>
 

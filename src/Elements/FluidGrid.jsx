@@ -121,7 +121,7 @@ const FluidGrid = () => {
     left: 0,
     width: '100vw',
     height: '100vh',
-    zIndex: -1, 
+    zIndex: 0, 
     backgroundColor: '#000',
     overflow: 'hidden',
   };
