@@ -23,7 +23,9 @@ export const FloatingButton = () => {
             className="fixed top-10 right-4 z-50 w-28 h-12 rounded-4xl cursor-pointer flex justify-center bg-white backdrop-blur-sm overflow-hidden"
             onClick={() => setIsOpen(!isOpen)}
             whileHover={{scale: 1.2, transition: {duration: 0.15}}}
-            
+            initial={{scale:0}}
+            animate={{scale: 1, dur: 2}}
+            transition={{delay:5}}
             >
             <motion.div
                 className="flex flex-col items-center justify-center"

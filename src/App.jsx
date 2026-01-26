@@ -3,7 +3,8 @@ import './App.css'
 import { FloatingButton } from './Elements/MenuButton'
 import HeroSection from './Elements/HeroSection'
 import FluidGrid from './Elements/FluidGrid'
-import { useInView } from 'framer-motion'
+import { useInView, motion } from 'framer-motion'
+import WaterBubbles from './Elements/WaterBubbles'
 
 function App() {
   const homeRef = useRef(null);
@@ -31,30 +32,35 @@ function App() {
 
   return (
     <>
-      <div className='w-screen h-screen'>
+      <div className='w-full h-screen'>
         {isHomeInView && <FluidGrid></FluidGrid>}
         <FloatingButton></FloatingButton>
 
         <header>
-          <h1 className="text-5xl w-full mb-10 fixed p-8 text-white z-40">
+          <motion.h1 className="text-5xl w-full mb-10 fixed p-8 text-white z-40"
+            initial={{x:-20, opacity:0}}
+            animate={{x:0, opacity:1}}
+            transition={{delay:5.2, duration:1.4}}>
             Fake Name
-          </h1>
+          </motion.h1>
 
         </header>
 
         <section id="home" className="relative min-h-screen w-full overflow-x-hidden flex flex-col h-dvh overflow-hidden" style={{ touchAction: 'none' }} ref={homeRef}>
           <HeroSection></HeroSection>
         </section>
-        <section id="intermission-1" className='relative w-screen h-screen z-10' style={{backgroundColor: "rgba(0, 96, 128)", zIndex: 9999}}>
 
+        <section id="intermission-1" className='relative w-full h-screen bg-linear-to-b from-[#006080] via-[#006080] to-[#004669]' style={{ zIndex: 1}}>
+          {/* <WaterBubbles></WaterBubbles> */}
+        </section>
+
+        <section id="Featured-Work" className='relative w-full h-screen bg-linear-to-b from-[#004669] via-[#004669] to-[#003955]' style={{ zIndex: 1}}>
+          
         </section>
 
 
 
-        <section id='contact' className=' text-3xl mt-96 mb-96 break-all overflow-x-hidden max-w-full'>contact: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</section>
-        <footer style={{ padding: '50px' }}>
-          <p>nice</p>
-        </footer>
+        
       </div>
     </>
   )
