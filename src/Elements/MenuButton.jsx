@@ -25,7 +25,7 @@ export const FloatingButton = () => {
             whileHover={{scale: 1.2, transition: {duration: 0.15}}}
             initial={{scale:0}}
             animate={{scale: 1, dur: 2}}
-            transition={{delay:5}}
+            transition={{delay:2.45}}
             >
             <motion.div
                 className="flex flex-col items-center justify-center"

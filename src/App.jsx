@@ -8,7 +8,6 @@ import WaterBubbles from './Elements/WaterBubbles'
 
 function App() {
   const homeRef = useRef(null);
-  const isHomeInView = useInView(homeRef, { amount: 0.1 });
 
 
   useEffect(() => {
@@ -18,44 +17,39 @@ function App() {
 
     window.scrollTo(0, 0);
 
-    document.body.style.overflow = 'hidden';
-    
-    const timer = setTimeout(() => {
-      document.body.style.overflow = 'unset';
-    }, 5000); 
-
     return () => {
       document.body.style.overflow = 'unset';
-      clearTimeout(timer);
     };
   }, []);
 
   return (
     <>
       <div className='w-full h-screen'>
-        {isHomeInView && <FluidGrid></FluidGrid>}
+        <FluidGrid></FluidGrid>
         <FloatingButton></FloatingButton>
 
         <header>
           <motion.h1 className="text-5xl w-full mb-10 fixed p-8 text-white z-40"
             initial={{x:-20, opacity:0}}
             animate={{x:0, opacity:1}}
-            transition={{delay:5.2, duration:1.4}}>
-            Fake Name
+            transition={{delay:2.7, duration:1.4}}>
+            MING JIE
           </motion.h1>
 
         </header>
 
-        <section id="home" className="relative min-h-screen w-full overflow-x-hidden flex flex-col h-dvh overflow-hidden" style={{ touchAction: 'none' }} ref={homeRef}>
+        <section id="home" className="relative min-h-screen w-full overflow-x-hidden flex flex-col h-dvh overflow-hidden" style={{ touchAction: 'none' }}>
           <HeroSection></HeroSection>
         </section>
 
-        <section id="intermission-1" className='relative w-full h-screen bg-linear-to-b from-[#006080] via-[#006080] to-[#004669]' style={{ zIndex: 1}}>
-          {/* <WaterBubbles></WaterBubbles> */}
-        </section>
-
-        <section id="Featured-Work" className='relative w-full h-screen bg-linear-to-b from-[#004669] via-[#004669] to-[#003955]' style={{ zIndex: 1}}>
-          
+        <section id="Featured-Work" className='relative w-full bg-linear-to-b mt-12' style={{ zIndex: 1}}>
+          <h1 className='text-white text-left md:text-center text-8xl tracking-widest m-5'>FEATURED WORK</h1>
+          <div className='flex flex-row flex-wrap p-5'>
+            <div className='w-full md:w-1/2 bg-amber-500 h-96'></div>
+            <div className='w-full md:w-1/2 bg-amber-600 h-96'></div>     
+            <div className='w-full md:w-1/2 bg-amber-700 h-96'></div>
+            <div className='w-full md:w-1/2 bg-amber-800 h-96'></div>
+          </div>
         </section>
 
 

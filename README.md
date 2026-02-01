@@ -1,17 +1,20 @@
 Todo.
-1. Make some symbols that is related to programming and have to float and animated on the waater. dont need to follow the water just float up and down and rotate a little bit.
-2. Start working deciding what kind of content the page should have.
-3. Menu and logo animate in
+1. Pick at least 4 works to feature
+2. Add in the 4 works into the website with video.
+
+
+Mobile Fixes Needed
+1. Logo and menu button are clashing a bit on my own phone
+2. Grid background only works for tapping and not really swiping which is the most ideal.
 
 
 
 Webpage Flow (Single Page)
 1. Hero Section
     - Opening animation to set the tone
-2. intermission 1
-    - Water bubbles like you dive into water (Havent do yet)
 2. Featured Works
     - Showcase top maybe 6 projects that I am proud of (if playable would be a plus)
+    - Physics Project, FYP, Memotics Unreal Engine, studio project 4
 3. Working Experiences
     - Show a timeline of my working experience
 4. Personal Achievements

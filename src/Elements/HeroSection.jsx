@@ -11,14 +11,9 @@ const HeroSection = () => {
   
   useEffect(() => {
     let isCancelled = false;
-    document.body.style.overflow = 'hidden';
-    
-    const timer = setTimeout(() => {
-      document.body.style.overflow = 'unset';
-    }, 5000); 
 
     const typeEffect = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 400));
+      await new Promise((resolve) => setTimeout(resolve, 200));
 
       let curText = "";
       for (const char of "Hi! I'm Fake Name") {
@@ -27,14 +22,14 @@ const HeroSection = () => {
         curText += char;
         setHeaderText(curText);
         
-        await new Promise((resolve) => setTimeout(resolve, 80));
+        await new Promise((resolve) => setTimeout(resolve, 60));
       }
     };
 
     typeEffect();
 
     const typeEffect2 = async () => {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      await new Promise((resolve) => setTimeout(resolve, 500));
 
       let curText = "";
       for (const char of "A Developer creating functional software and interactive gameplay-driven experiences") {
@@ -43,7 +38,7 @@ const HeroSection = () => {
         curText += char;
         setDescriptionText(curText);
         
-        await new Promise((resolve) => setTimeout(resolve, 50));
+        await new Promise((resolve) => setTimeout(resolve, 40));
       }
     };
 
@@ -52,7 +47,6 @@ const HeroSection = () => {
 
     return () => {
       document.body.style.overflow = 'unset';
-      clearTimeout(timer);
       isCancelled=true;
     };  
   }, []);
@@ -64,7 +58,7 @@ const HeroSection = () => {
           className="w-full md:w-1/2 flex justify-center items-center"
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 2.4, type: "spring", stiffness: 100 }}
+          transition={{ delay: 1.2, type: "spring", stiffness: 100 }}
         >
           <BlobImage />
         </motion.div>
@@ -86,19 +80,10 @@ const HeroSection = () => {
       </div>
 
       <motion.div 
-        className="w-full"
-        initial={{ y: 200 }}
-        animate={{ y: 0 }}
-        transition={{ delay: 3.2, duration: 1.2, ease: "easeOut" }}
-      >
-        <HorizonWater />
-      </motion.div>
-
-      <motion.div 
         className="absolute bottom-10 left-1/2 -translate-x-1/2 z-30"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 5 }} 
+        transition={{ delay: 2.5 }} 
       >
         <p className="text-sm uppercase tracking-widest animate-bounce text-white text-nowrap">↓ Scroll to explore ↓</p>
       </motion.div>
